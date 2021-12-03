@@ -6,56 +6,71 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 40rem;
-  width:100%;
+  width: 100%;
 
-  div{
-    width: 50%;
+  div {
+    width: 80%;
     display: flex;
     align-items: center;
-    input{
+    input {
       width: 80%;
       height: 3rem;
-          background-color: transparent;
-          border: 1px solid #ff8f00;
-          border-radius: 0.3rem 0  0 0.3rem;
-          color: #fff;
-          font-size: 2ch;
-          padding: 0 1rem;
+      background-color: transparent;
+      border: 1px solid #ff8f00;
+      border-radius: 0.3rem 0 0 0.3rem;
+      color: #fff;
+      font-size: 2ch;
+      padding: 0 1rem;
 
-          &:focus {
-            outline: none;
-            border: 1px solid #e65100;
-          }
+      &:focus {
+        outline: none;
+        border: 1px solid #e65100;
+      }
     }
-    button{
+    button {
       width: 20%;
       height: 3rem;
       border: none;
       background-color: #e65100;
-          border-radius: 0px;
-          color: #fff;
+      border-radius: 0px;
+      color: #fff;
     }
   }
-
 
   ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 80%;
     height: 100%;
     list-style: none;
     margin-top: 2rem;
     background-color: #2b2b32;
     padding: 2rem;
-    over-flow:scroll;
+    overflow-y: scroll;
+    scroll-behavior: inherit;
 
-    li{
-      margin-top:1rem;
+    li {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
       align-self: start;
-      span{
+      span {
         align-self: end;
-        margin-left:1rem;
+        margin-left: 1rem;
+      }
+      img {
+        background-color: #fff;
+        padding: 0.5rem;
+        border-radius: 100%;
+      }
+      section {
+        display: flex;
+        flex-direction: row;
+
+        strong {
+          margin-left: 0.8rem;
+        }
       }
     }
     #other {
@@ -66,7 +81,7 @@ export const Container = styled.div`
       align-self: flex-start;
       color: #fff;
       :before {
-        content: '';
+        content: "";
         position: absolute;
         width: 0;
         height: 0;
@@ -75,8 +90,11 @@ export const Container = styled.div`
         border-right: 16px solid transparent;
         top: 0px;
         left: -9px;
-    }
-      
+      }
+
+      img {
+        margin-right: 1rem;
+      }
     }
     #me {
       align-self: flex-end;
@@ -96,7 +114,13 @@ export const Container = styled.div`
         bottom: 0;
         right: -9px;
       }
+      img {
+        align-self: flex-end;
+        margin-left: 1rem;
+      }
+      strong {
+        margin-right: 0.8rem;
+      }
     }
-
-    
+  }
 `;

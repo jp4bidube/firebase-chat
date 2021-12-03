@@ -5,10 +5,15 @@ import { Container, Header, Content, Footer } from "./styles";
 import fireLogo from "../../assets/icon.svg";
 
 function Login() {
-  const { user, signIn, signUp } = useContext(UserContext);
+  const { user, signIn, signUp ,signInGoole} = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const handleLoginGoogle = async ()=>{
+    await signInGoole();
+  }
+
   const handleLogin = async () => {
     await signIn(email, password)
       .then(() => {
@@ -67,6 +72,7 @@ function Login() {
                 Logar
               </button>
             </section>
+            <button type='button' onClick={handleLoginGoogle}>google</button>
           </form>
         </section>
       </Content>

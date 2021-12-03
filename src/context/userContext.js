@@ -6,6 +6,8 @@ import {
   createUserWithEmailAndPassword,
   signOut as signOutFireBase,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup
 } from "firebase/auth";
 
 const auth = getAuth();
@@ -18,7 +20,6 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     return onAuthStateChanged(auth, async (userState) => {
-      console.log('teste',userState)
       setUser(userState);
       setLoading(false);
     });
@@ -29,12 +30,28 @@ const UserProvider = ({ children }) => {
     console.log(response);
   };
 
+  const signInGoole = async () => {
+    const provider = new GoogleAuthProvider();
+    console.log(provider)
+    try {
+      const response = await signInWithPopup(provider).then((res) => {
+        // const token = res.credential.accessToken;
+        // const user = res.user;
+
+        return res
+      });
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const signOut = async () => {
     await signOutFireBase(auth);
   };
 
   const signUp = async (email, password) => {
-    const photoURL = `https://robohash.org/${email}?set=set4&bgset=&size=400x400`
+    const photoURL = `https://robohash.org/${email}?set=set4&bgset=&size=400x400`;
     const response = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -44,7 +61,9 @@ const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, loading, signIn, signOut, signUp }}>
+    <UserContext.Provider
+      value={{ user, loading, signIn, signOut, signUp, signInGoole }}
+    >
       {children}
     </UserContext.Provider>
   );

@@ -11,7 +11,7 @@ function HeaderContainer() {
     <Container>
       <section>
         <img
-          src={`https://robohash.org/${Math.random()}?set=set4`}
+          src={`https://robohash.org/${user.uid}?set=set4`}
           alt="avatar"
           width="100px"
         />
