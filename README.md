@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# JP chat
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![alt text](https://github.com/jp4bidube/firebase-chat/blob/main/chat.png?raw=true)
 
 ## Available Scripts
 
